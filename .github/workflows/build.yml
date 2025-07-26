@@ -34,7 +34,7 @@ jobs:
 
       - name: Build with Nuitka
         run: |
-          nuitka --standalone --onefile --enable-plugin=pygame --output-dir=dist main.py
+          nuitka --standalone --onefile --output-dir=dist main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
