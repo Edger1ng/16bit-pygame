@@ -13,7 +13,8 @@ An **simple game** made on **Python** + **Pygame**
 
 ## Screenshot
 
-![Screenshot][readme/main.png]
+![Screenshot](readme/main.png)
+
 
 ## Install
 
