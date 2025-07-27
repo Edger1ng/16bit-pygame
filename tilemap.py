@@ -3,7 +3,7 @@ import random
 from settings import TILE_SIZE, MAP_COLS, MAP_ROWS, WALL_COLOR, PATH_COLOR
 
 class TileMap:
-    def __init__(self, use_custom_map=True):
+    def __init__(self, use_custom_map=False):
         if use_custom_map:
             self.map = []
             
