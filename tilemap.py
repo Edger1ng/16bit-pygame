@@ -3,15 +3,24 @@ import random
 from settings import TILE_SIZE, MAP_COLS, MAP_ROWS, WALL_COLOR, PATH_COLOR
 
 class TileMap:
-    def __init__(self):
-        self.map = [[1 for _ in range(MAP_COLS)] for _ in range(MAP_ROWS)]
-        self.generate_maze()
+    def __init__(self, use_custom_map=True):
+        if use_custom_map:
+            self.map = []
+            
 
+            self.traps = {}
+            
+
+            self.portals = []
+        else:
+
+            self.map = [[1 for _ in range(MAP_COLS)] for _ in range(MAP_ROWS)]
+            self.generate_maze()
+            self.traps = set(random.sample(self.get_free_tiles(), k=10))
+            self.portals = random.sample(self.get_free_tiles(), k=4)
+        
         self.wall_surface = self.create_wall_surface()
         self.path_surface = self.create_path_surface()
-
-        self.traps = set(random.sample(self.get_free_tiles(), k=10))
-        self.portals = random.sample(self.get_free_tiles(), k=4)  
 
     def generate_maze(self):
         def carve_passages(cx, cy):
